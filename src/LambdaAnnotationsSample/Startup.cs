@@ -8,7 +8,7 @@ namespace LambdaAnnotationsSample
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<CalculatorService, CalculatorService>();
+            services.AddScoped<ICalculatorService, CalculatorService>();
         }
     }
 }

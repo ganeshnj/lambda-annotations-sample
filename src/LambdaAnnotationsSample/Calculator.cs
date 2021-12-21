@@ -15,9 +15,9 @@ namespace LambdaAnnotationsSample
 {
     public class Calculator
     {
-        private readonly CalculatorService calculatorService;
+        private readonly ICalculatorService calculatorService;
 
-        public Calculator(CalculatorService calculatorService)
+        public Calculator(ICalculatorService calculatorService)
         {
             this.calculatorService = calculatorService;
         }
@@ -31,7 +31,7 @@ namespace LambdaAnnotationsSample
 
         [LambdaFunction(Name = "CalculatorSubtract", PackageType = LambdaPackageType.Image)]
         [RestApi(HttpMethod.Get, "/Calculator/Subtract")]
-        public int Subtract([FromQuery]int x, [FromQuery]int y, [FromServices]CalculatorService calculatorService)
+        public int Subtract([FromQuery]int x, [FromQuery]int y, [FromServices]ICalculatorService calculatorService)
         {
             return calculatorService.Substract(x, y);
         }
